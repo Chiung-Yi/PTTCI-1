@@ -1,4 +1,4 @@
-
+import requests
 '''
 常數區塊
 '''
@@ -17,6 +17,9 @@ HEADERS = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36'
 }
 
+'''
+執行區塊
+'''
 
 # 目標頁面的頁數
 page_num = ''
@@ -27,4 +30,13 @@ target_board = 'Stock'
 # 合併完整路徑
 target = BASE_URL + target_board + target_page + page_num + HTML_EXT
 
+def download_html(target,headers=HEADERS):
+    #data = requests.get(target, headers=headers)
+    #return True
+    return requests.get(target, headers=headers)
 
+'''
+TEST
+'''
+x=download_html (target)
+print(x.content)
